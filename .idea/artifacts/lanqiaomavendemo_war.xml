@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="lanqiaomavendemo:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <root id="archive" name="lanqiao-maven-demo.war">
+      <element id="artifact" artifact-name="lanqiaomavendemo:war exploded" />
+    </root>
+  </artifact>
+</component>
