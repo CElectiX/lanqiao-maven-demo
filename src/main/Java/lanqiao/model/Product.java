@@ -225,5 +225,30 @@ public class Product {
         this.productOrder = productOrder;
     }
 
-
+    @Override
+    public String toString() {
+        return "Product{" +
+                "productId='" + productId + '\'' +
+                ", productCode='" + productCode + '\'' +
+                ", productName='" + productName + '\'' +
+                ", productStandard='" + productStandard + '\'' +
+                ", productSmallUnit='" + productSmallUnit + '\'' +
+                ", productSmallPrice=" + productSmallPrice +
+                ", productLargerUnit='" + productLargerUnit + '\'' +
+                ", productLargerPrice=" + productLargerPrice +
+                ", productCategoryId='" + productCategoryId + '\'' +
+                ", productBrandId='" + productBrandId + '\'' +
+                ", productPhoto='" + productPhoto + '\'' +
+                ", productIsSale=" + productIsSale +
+                ", productIsLack=" + productIsLack +
+                ", productStatus=" + productStatus +
+                ", productOrder=" + productOrder +
+                ", productDateTime='" + productDateTime + '\'' +
+                ", productLargerStandard='" + productLargerStandard + '\'' +
+                ", productSuggestPrice=" + productSuggestPrice +
+                ", category=" + category +
+                ", otherDatas=" + otherDatas +
+                ", params=" + params +
+                '}';
+    }
 }
