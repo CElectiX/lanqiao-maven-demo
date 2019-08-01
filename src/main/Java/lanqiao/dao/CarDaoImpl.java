@@ -1,6 +1,8 @@
 package lanqiao.dao;
 
 import java.math.BigDecimal;
+import java.time.DateTimeException;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -8,9 +10,15 @@ import java.util.Map;
 import lanqiao.model.Detail;
 import lanqiao.model.Product;
 import lanqiao.util.DbUtil;
+import lanqiao.util.IdUtil;
 import lanqiao.util.StringUtil;
 
 public class CarDaoImpl {
+	/**
+	 * 查询购物车
+	 * @param uid
+	 * @return
+	 */
 //	public List<Map<String,Object>> queryCartList(String uid) {
 //		String sql = "select * from order_detail where DETAIL_USER_ID=?";
 //		List<Map<String,Object>> list = DbUtil.query(sql, uid);
@@ -60,5 +68,34 @@ public class CarDaoImpl {
 			}
 		}
 		return detailList;
+	}
+
+	public Boolean addCar(String detailProductId,
+						  Integer detailProductCount,
+						  String detailProductUnit,
+						  BigDecimal detailProductPrice,
+						  String detailComment,
+						  String detailUserId){
+		String sql = "insert into order_detail values(?,?,?,?,?,?,?,?,?,?,?)";
+		int i = DbUtil.update(sql,
+				IdUtil.getUuid(),
+				detailProductId,
+				detailProductCount,
+				detailProductUnit,
+				detailProductPrice,
+				BigDecimal.valueOf(Double.valueOf(detailProductCount)).multiply(detailProductPrice),
+				detailComment,
+				1,
+				IdUtil.getDateId(),
+				detailUserId,
+				null);
+				DateTimeFormatter.ofPattern(IdUtil.getLongTimeId());
+		Boolean bool = null;
+		if(i==1) {
+			bool = true;
+		}else {
+			bool = false;
+		}
+		return bool;
 	}
 }

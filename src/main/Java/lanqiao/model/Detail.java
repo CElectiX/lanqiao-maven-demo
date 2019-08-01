@@ -27,15 +27,6 @@ public class Detail {
     private String detailDateTime;
     private  Product  product;
 
-    @Override
-	public String toString() {
-		return "Detail [detailId=" + detailId + ", detailProductId=" + detailProductId + ", detailProductCount="
-				+ detailProductCount + ", detailProductUnit=" + detailProductUnit + ", detailProductPrice="
-				+ detailProductPrice + ", detailTotalPrice=" + detailTotalPrice + ", detailComment=" + detailComment
-				+ ", detailStatus=" + detailStatus + ", detailOrderId=" + detailOrderId + ", detailUserId="
-				+ detailUserId + ", detailDateTime=" + detailDateTime + ", product=" + product + "]";
-	}
-
 	public String getDetailUserId() {
         return detailUserId;
     }
