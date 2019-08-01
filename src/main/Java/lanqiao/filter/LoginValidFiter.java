@@ -22,8 +22,11 @@ public class LoginValidFiter implements Filter {
         HttpServletRequest request =(HttpServletRequest)servletRequest;
         HttpServletResponse response = (HttpServletResponse)servletResponse;
         String path = request.getRequestURI();
-        System.out.println(path);
-        if("/lanqiao-online/api/login".equals(path)){
+        if("/api/login".equals(path)){
+            filterChain.doFilter(request, response);
+            return;
+        }
+        if("/api/registered".equals(path)){
             filterChain.doFilter(request, response);
             return;
         }

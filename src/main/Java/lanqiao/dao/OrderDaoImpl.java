@@ -13,7 +13,7 @@ import lanqiao.vo.JsonResult;
 
 public class OrderDaoImpl {
 	/**
-	 * ��ѯ�����б�
+	 * 分页查询订单列表
 	 * @param pageNum
 	 * @param pageSize
 	 * @return
@@ -56,7 +56,7 @@ public class OrderDaoImpl {
 		return pgresult;
 	}
 	/**
-	 * ���ݶ���ID��ѯ����
+	 *根据订单ID查询订单
 	 * @param orderId
 	 * @return
 	 */
@@ -90,7 +90,7 @@ public class OrderDaoImpl {
 		return order;
 	}
 	/**
-	 * ���ݶ���id��ѯ������������  ��������
+	 *根据订单ID查询详情
 	 * @param detailId
 	 * @return
 	 */
@@ -137,7 +137,7 @@ public class OrderDaoImpl {
 		return detail;
 	}
 	/**
-	 * ����
+	 * 发货
 	 * @param orderid
 	 * @return
 	 */
@@ -152,7 +152,12 @@ public class OrderDaoImpl {
 		}
 		return bool;
 	}
-	
+
+	/**
+	 * 订单失效
+	 * @param orderid
+	 * @return
+	 */
 	public Boolean orderInvalid(String orderid) {
 		Boolean bool = null;
 		String sql = "UPDATE order_list SET ORDER_IS_VALID='0' WHERE ORDER_ID=?";
@@ -163,5 +168,10 @@ public class OrderDaoImpl {
 			bool = false;
 		}
 		return bool;
+	}
+
+	public Boolean commitOrderDaoImpl(){
+		String sql = "select DETAIL_PRODUCT_PRICE from order_detail where DETAIL_USER_ID=?";
+		return null;
 	}
 }

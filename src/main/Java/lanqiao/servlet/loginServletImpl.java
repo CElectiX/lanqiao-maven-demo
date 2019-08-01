@@ -33,7 +33,9 @@ public class loginServletImpl extends HttpServlet{
 			User user = impl.login(userUserName, userPassword);
 			if(user==null) {
 				result = new JsonResult("用户名或密码错误", "404", null);
-			}else {
+			}else if (userUserName==null&&userPassword==null){
+				result = new JsonResult("请输入用户名密码", "500", user);
+			}else{
 				result = new JsonResult("登陆成功", "200", user);
 			}
 		} catch (Exception e) {
